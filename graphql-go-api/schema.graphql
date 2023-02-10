@@ -1,0 +1,48 @@
+type Query { 
+    post(id: Int!): Post
+    # photo: Photo
+    # user: User
+}
+
+type Post {
+    userId: Int!
+    id: Int!
+    title: String!
+    body: String!
+    # comments: [Comment!]!
+}
+
+type Photo {
+    userId: Int
+    id: Int
+    title: String
+    url: String
+    thumbnailUrl: String
+}
+
+type User {
+    id: Int
+    name: String
+    username: String
+    email: String
+    address: Address
+}
+
+# type Comment {
+#     postId: Int!
+#     id: Int!
+#     name: String!
+#     email: String!
+#     body: String!
+# }
+
+type Address {
+    street: String
+    city: String
+    geo: Geo
+}
+
+type Geo {
+    lat: Float
+    lng: Float
+}
