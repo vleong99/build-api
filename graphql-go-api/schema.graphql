@@ -9,7 +9,7 @@ type Post {
     id: Int!
     title: String!
     body: String!
-    # comments: [Comment!]!
+    comments: [Comment!]!
 }
 
 type Photo {
@@ -28,13 +28,13 @@ type User {
     address: Address
 }
 
-# type Comment {
-#     postId: Int!
-#     id: Int!
-#     name: String!
-#     email: String!
-#     body: String!
-# }
+type Comment {
+    postId: Int!
+    id: Int!
+    name: String!
+    email: String!
+    body: String!
+}
 
 type Address {
     street: String

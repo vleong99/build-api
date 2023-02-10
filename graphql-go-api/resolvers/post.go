@@ -1,8 +1,11 @@
 package resolvers
 
 import (
+	"encoding/json"
 	"fmt"
 	"graphql-go-api/models"
+	"io"
+	"net/http"
 )
 
 type Post struct {
@@ -27,31 +30,31 @@ func (p *Post) Body() string {
 	return p.postData.Body
 }
 
-// func (p *Post) Comments() ([]*Comment, error) {
-// 	resp, err := http.Get(fmt.Sprintf("https://jsonplaceholder.typicode.com/posts/%d/comments", p.postData.ID))
-// 	if err != nil {
-// 		return nil, err
-// 	}
+func (p *Post) Comments() ([]*Comment, error) {
+	resp, err := http.Get(fmt.Sprintf("https://jsonplaceholder.typicode.com/posts/%d/comments", p.postData.ID))
+	if err != nil {
+		return nil, err
+	}
 
-// 	defer resp.Body.Close()
+	defer resp.Body.Close()
 
-// 	b, err := io.ReadAll(resp.Body)
-// 	if err != nil {
-// 		return nil, err
-// 	}
+	b, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
 
-// 	var model []models.Comment
+	var model []models.Comment
 
-// 	err = json.Unmarshal(b, &model)
-// 	if err != nil {
-// 		return nil, err
-// 	}
+	err = json.Unmarshal(b, &model)
+	if err != nil {
+		return nil, err
+	}
 
-// 	allComments := make([]*Comment, len(model))
+	allComments := make([]*Comment, len(model))
 
-// 	for i := 0; i < len(allComments); i++ {
-// 		allComments[i] = &Comment{commentData: model[i]}
-// 	}
+	for i := 0; i < len(allComments); i++ {
+		allComments[i] = &Comment{commentData: model[i]}
+	}
 
-// 	return allComments, nil
-// }
+	return allComments, nil
+}
