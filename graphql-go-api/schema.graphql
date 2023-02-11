@@ -1,6 +1,6 @@
 type Query { 
     post(id: Int!): Post
-    # photo: Photo
+    photo(albumId: Int = 0, title: String = ""): [Photo!]!
     # user: User
 }
 
@@ -13,11 +13,11 @@ type Post {
 }
 
 type Photo {
-    userId: Int
-    id: Int
-    title: String
-    url: String
-    thumbnailUrl: String
+    albumId: Int!
+    id: Int!
+    title: String!
+    url: String!
+    thumbnailUrl: String!
 }
 
 type User {

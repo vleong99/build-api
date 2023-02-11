@@ -1,23 +1,29 @@
 package resolvers
 
-type Photo struct{}
+import (
+	"graphql-go-api/models"
+)
 
-// func (_ *Photo) userId() int {
-// 	//insert
-// }
+type Photo struct {
+	photoData models.Photo
+}
 
-// func (_ *Photo) id() int {
-// 	//insert
-// }
+func (p *Photo) AlbumId() int32 {
+	return p.photoData.AlbumId
+}
 
-// func (_ *Photo) title() int {
-// 	//insert
-// }
+func (p *Photo) Id() int32 {
+	return p.photoData.Id
+}
 
-// func (_ *Photo) url() string {
-// 	//insert
-// }
+func (p *Photo) Title() string {
+	return p.photoData.Title
+}
 
-// func (_ *Photo) thumbnailUrl() string {
-// 	//insert
-// }
+func (p *Photo) Url() string {
+	return p.photoData.Url
+}
+
+func (p *Photo) ThumbnailUrl() string {
+	return p.photoData.ThumbnailUrl
+}

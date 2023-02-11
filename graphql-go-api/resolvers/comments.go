@@ -11,7 +11,7 @@ func (c *Comment) PostId() int32 {
 }
 
 func (c *Comment) Id() int32 {
-	return c.commentData.PostId
+	return c.commentData.ID
 }
 
 func (c *Comment) Name() string {
