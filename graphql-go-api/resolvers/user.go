@@ -1,23 +1,27 @@
 package resolvers
 
-type User struct{}
+import "graphql-go-api/models"
 
-// func (_ *User) id() int {
-// 	//insert
-// }
+type User struct {
+	userData models.User
+}
 
-// func (_ *User) name() string {
-// 	//insert
-// }
+func (u *User) Id() int32 {
+	return u.userData.Id
+}
 
-// func (_ *User) username() string {
-// 	//insert
-// }
+func (u *User) Name() string {
+	return u.userData.Name
+}
 
-// func (_ *User) email() string {
-// 	//insert
-// }
+func (u *User) Username() string {
+	return u.userData.Username
+}
 
-// func (_ *User) address() Address {
-// 	//insert
-// }
+func (u *User) Email() string {
+	return u.userData.Email
+}
+
+func (u *User) Address() *Address {
+	return &Address{addressData: u.userData.Address}
+}

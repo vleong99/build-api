@@ -1,11 +1,15 @@
 package resolvers
 
-type Geo struct{}
+import "graphql-go-api/models"
 
-// func (_ *Geo) Lat() float64 {
-// 	//insert
-// }
+type Geo struct {
+	geoData models.Geo
+}
 
-// func (_ *Geo) Lng() float64 {
-// 	//insert
-// }
+func (g *Geo) Lat() float64 {
+	return g.geoData.Lat
+}
+
+func (g *Geo) Lng() float64 {
+	return g.geoData.Lng
+}

@@ -1,15 +1,19 @@
 package resolvers
 
-type Address struct{}
+import "graphql-go-api/models"
 
-// func (_ *Address) street() string {
-// 	//insert
-// }
+type Address struct {
+	addressData models.Address
+}
 
-// func (_ *Address) city() string {
-// 	//insert
-// }
+func (a *Address) Street() string {
+	return a.addressData.Street
+}
 
-// func (_ *Address) geo() Geo {
-// 	//insert
-// }
+func (a *Address) City() string {
+	return a.addressData.City
+}
+
+func (a *Address) Geo() *Geo {
+	return &Geo{geoData: a.addressData.Geo}
+}

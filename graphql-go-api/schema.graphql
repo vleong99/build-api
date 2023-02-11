@@ -1,7 +1,7 @@
 type Query { 
     post(id: Int!): Post
     photo(albumId: Int = 0, title: String = ""): [Photo!]!
-    # user: User
+    user(id: Int = 0, name: String = "", username: String = ""): [User!]!
 }
 
 type Post {
@@ -21,11 +21,11 @@ type Photo {
 }
 
 type User {
-    id: Int
-    name: String
-    username: String
-    email: String
-    address: Address
+    id: Int!
+    name: String!
+    username: String!
+    email: String!
+    address: Address!
 }
 
 type Comment {
@@ -37,12 +37,12 @@ type Comment {
 }
 
 type Address {
-    street: String
-    city: String
-    geo: Geo
+    street: String!
+    city: String!
+    geo: Geo!
 }
 
 type Geo {
-    lat: Float
-    lng: Float
+    lat: Float!
+    lng: Float!
 }
