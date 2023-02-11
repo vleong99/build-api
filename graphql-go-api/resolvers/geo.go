@@ -6,10 +6,10 @@ type Geo struct {
 	geoData models.Geo
 }
 
-func (g *Geo) Lat() float64 {
+func (g *Geo) Lat() string {
 	return g.geoData.Lat
 }
 
-func (g *Geo) Lng() float64 {
+func (g *Geo) Lng() string {
 	return g.geoData.Lng
 }
